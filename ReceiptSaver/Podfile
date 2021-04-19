@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '11.0'
+
+def default_visma_pods 
+  use_frameworks!
+  pod 'RealmSwift'
+end
+
+target 'ReceiptSaver' do
+  use_frameworks!
+  default_visma_pods
+end
+
+target 'ReceiptSaverDev' do
+  use_frameworks!
+  default_visma_pods
+end

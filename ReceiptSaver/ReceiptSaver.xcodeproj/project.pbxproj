@@ -3,20 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9D374299262DC8C700605443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374298262DC8C700605443 /* AppDelegate.swift */; };
-		9D37429D262DC8C700605443 /* ReceiptsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37429C262DC8C700605443 /* ReceiptsListViewController.swift */; };
+		9D37429D262DC8C700605443 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37429C262DC8C700605443 /* ReceiptListViewController.swift */; };
 		9D3742A2262DC8CB00605443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3742A1262DC8CB00605443 /* Assets.xcassets */; };
 		9D3742A5262DC8CB00605443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3742A3262DC8CB00605443 /* LaunchScreen.storyboard */; };
 		9D3742B0262DC8CB00605443 /* ReceiptSaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3742AF262DC8CB00605443 /* ReceiptSaverTests.swift */; };
 		9D3742BB262DC8CB00605443 /* ReceiptSaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3742BA262DC8CB00605443 /* ReceiptSaverUITests.swift */; };
-		9D3742CD262DC8D800605443 /* ReceiptsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37429C262DC8C700605443 /* ReceiptsListViewController.swift */; };
+		9D3742CD262DC8D800605443 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37429C262DC8C700605443 /* ReceiptListViewController.swift */; };
 		9D3742CE262DC8D800605443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374298262DC8C700605443 /* AppDelegate.swift */; };
 		9D3742D2262DC8D800605443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3742A3262DC8CB00605443 /* LaunchScreen.storyboard */; };
 		9D3742D3262DC8D800605443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3742A1262DC8CB00605443 /* Assets.xcassets */; };
+		9D374359262DD0DE00605443 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374358262DD0DE00605443 /* BaseTableView.swift */; };
+		9D37435A262DD0DE00605443 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374358262DD0DE00605443 /* BaseTableView.swift */; };
+		9D374365262DD10600605443 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374364262DD10600605443 /* NSObject+Extension.swift */; };
+		9D374366262DD10600605443 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374364262DD10600605443 /* NSObject+Extension.swift */; };
+		9D374371262DD21200605443 /* ReceiptListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374370262DD21200605443 /* ReceiptListViewModel.swift */; };
+		9D374372262DD21200605443 /* ReceiptListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374370262DD21200605443 /* ReceiptListViewModel.swift */; };
+		9D37437D262DDD7500605443 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37437C262DDD7500605443 /* ModelProtocol.swift */; };
+		9D37437E262DDD7500605443 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37437C262DDD7500605443 /* ModelProtocol.swift */; };
+		9D374388262DDD9000605443 /* TableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374387262DDD9000605443 /* TableViewProtocol.swift */; };
+		9D374389262DDD9000605443 /* TableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D374387262DDD9000605443 /* TableViewProtocol.swift */; };
+		9D37438F262DDDA100605443 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37438E262DDDA100605443 /* ViewModelProtocol.swift */; };
+		9D374390262DDDA100605443 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37438E262DDDA100605443 /* ViewModelProtocol.swift */; };
+		9D3743A2262DEC4A00605443 /* PersistenceCacheMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743A1262DEC4A00605443 /* PersistenceCacheMechanism.swift */; };
+		9D3743A3262DEC4A00605443 /* PersistenceCacheMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743A1262DEC4A00605443 /* PersistenceCacheMechanism.swift */; };
+		9D3743B2262DED3400605443 /* ReceiptList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743B1262DED3400605443 /* ReceiptList.swift */; };
+		9D3743B3262DED3400605443 /* ReceiptList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743B1262DED3400605443 /* ReceiptList.swift */; };
+		9D3743C1262DED7100605443 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743C0262DED7100605443 /* ReceiptModel.swift */; };
+		9D3743C2262DED7100605443 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743C0262DED7100605443 /* ReceiptModel.swift */; };
+		9D3743CC262DF3F400605443 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743CB262DF3F400605443 /* Receipt.swift */; };
+		9D3743CD262DF3F400605443 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3743CB262DF3F400605443 /* Receipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +59,7 @@
 /* Begin PBXFileReference section */
 		9D374295262DC8C700605443 /* ReceiptSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiptSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D374298262DC8C700605443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D37429C262DC8C700605443 /* ReceiptsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsListViewController.swift; sourceTree = "<group>"; };
+		9D37429C262DC8C700605443 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
 		9D3742A1262DC8CB00605443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D3742A4262DC8CB00605443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D3742AB262DC8CB00605443 /* ReceiptSaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReceiptSaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +71,16 @@
 		9D3742D8262DC8D800605443 /* ReceiptSaverDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiptSaverDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3742E2262DC90F00605443 /* ReceiptSaverDev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReceiptSaverDev.plist; sourceTree = "<group>"; };
 		9D3742E8262DC91F00605443 /* ReceiptSaver.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReceiptSaver.plist; sourceTree = "<group>"; };
+		9D374358262DD0DE00605443 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		9D374364262DD10600605443 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		9D374370262DD21200605443 /* ReceiptListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewModel.swift; sourceTree = "<group>"; };
+		9D37437C262DDD7500605443 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
+		9D374387262DDD9000605443 /* TableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProtocol.swift; sourceTree = "<group>"; };
+		9D37438E262DDDA100605443 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		9D3743A1262DEC4A00605443 /* PersistenceCacheMechanism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceCacheMechanism.swift; sourceTree = "<group>"; };
+		9D3743B1262DED3400605443 /* ReceiptList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptList.swift; sourceTree = "<group>"; };
+		9D3743C0262DED7100605443 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
+		9D3743CB262DF3F400605443 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +115,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		438734C6C2E739BA625C2BEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9D37428C262DC8C700605443 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +129,7 @@
 				9D3742AE262DC8CB00605443 /* ReceiptSaverTests */,
 				9D3742B9262DC8CB00605443 /* ReceiptSaverUITests */,
 				9D374296262DC8C700605443 /* Products */,
+				438734C6C2E739BA625C2BEC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +147,13 @@
 		9D374297262DC8C700605443 /* ReceiptSaver */ = {
 			isa = PBXGroup;
 			children = (
+				9D3743B0262DED2800605443 /* Models */,
+				9D37437B262DDD6A00605443 /* Protocols */,
+				9D37436F262DD1FE00605443 /* ViewModels */,
+				9D374363262DD0F300605443 /* Extensions */,
+				9D374356262DD0C000605443 /* Scenes */,
 				9D374298262DC8C700605443 /* AppDelegate.swift */,
-				9D37429C262DC8C700605443 /* ReceiptsListViewController.swift */,
+				9D37429C262DC8C700605443 /* ReceiptListViewController.swift */,
 				9D3742A1262DC8CB00605443 /* Assets.xcassets */,
 				9D3742A3262DC8CB00605443 /* LaunchScreen.storyboard */,
 				9D3742E8262DC91F00605443 /* ReceiptSaver.plist */,
@@ -135,6 +178,59 @@
 				9D3742BC262DC8CB00605443 /* Info.plist */,
 			);
 			path = ReceiptSaverUITests;
+			sourceTree = "<group>";
+		};
+		9D374356262DD0C000605443 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9D374357262DD0C500605443 /* Common */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9D374357262DD0C500605443 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9D374358262DD0DE00605443 /* BaseTableView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9D374363262DD0F300605443 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D374364262DD10600605443 /* NSObject+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D37436F262DD1FE00605443 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9D374370262DD21200605443 /* ReceiptListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9D37437B262DDD6A00605443 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9D37437C262DDD7500605443 /* ModelProtocol.swift */,
+				9D374387262DDD9000605443 /* TableViewProtocol.swift */,
+				9D37438E262DDDA100605443 /* ViewModelProtocol.swift */,
+				9D3743A1262DEC4A00605443 /* PersistenceCacheMechanism.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9D3743B0262DED2800605443 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D3743B1262DED3400605443 /* ReceiptList.swift */,
+				9D3743C0262DED7100605443 /* ReceiptModel.swift */,
+				9D3743CB262DF3F400605443 /* Receipt.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,8 +389,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D37429D262DC8C700605443 /* ReceiptsListViewController.swift in Sources */,
+				9D3743C1262DED7100605443 /* ReceiptModel.swift in Sources */,
+				9D37438F262DDDA100605443 /* ViewModelProtocol.swift in Sources */,
+				9D37429D262DC8C700605443 /* ReceiptListViewController.swift in Sources */,
+				9D374388262DDD9000605443 /* TableViewProtocol.swift in Sources */,
+				9D37437D262DDD7500605443 /* ModelProtocol.swift in Sources */,
+				9D374359262DD0DE00605443 /* BaseTableView.swift in Sources */,
 				9D374299262DC8C700605443 /* AppDelegate.swift in Sources */,
+				9D374371262DD21200605443 /* ReceiptListViewModel.swift in Sources */,
+				9D3743A2262DEC4A00605443 /* PersistenceCacheMechanism.swift in Sources */,
+				9D3743CC262DF3F400605443 /* Receipt.swift in Sources */,
+				9D3743B2262DED3400605443 /* ReceiptList.swift in Sources */,
+				9D374365262DD10600605443 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +424,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D3742CD262DC8D800605443 /* ReceiptsListViewController.swift in Sources */,
+				9D3743C2262DED7100605443 /* ReceiptModel.swift in Sources */,
+				9D374390262DDDA100605443 /* ViewModelProtocol.swift in Sources */,
+				9D3742CD262DC8D800605443 /* ReceiptListViewController.swift in Sources */,
+				9D374389262DDD9000605443 /* TableViewProtocol.swift in Sources */,
+				9D37437E262DDD7500605443 /* ModelProtocol.swift in Sources */,
+				9D37435A262DD0DE00605443 /* BaseTableView.swift in Sources */,
 				9D3742CE262DC8D800605443 /* AppDelegate.swift in Sources */,
+				9D374372262DD21200605443 /* ReceiptListViewModel.swift in Sources */,
+				9D3743A3262DEC4A00605443 /* PersistenceCacheMechanism.swift in Sources */,
+				9D3743CD262DF3F400605443 /* Receipt.swift in Sources */,
+				9D3743B3262DED3400605443 /* ReceiptList.swift in Sources */,
+				9D374366262DD10600605443 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
