@@ -10,12 +10,14 @@ import UIKit
 class ReceiptListViewController: UIViewController {
 
     private(set) var tableView: UITableView?
+    private(set) var viewModel: ReceiptListViewModel?
     
-    init(_ tableView: UITableView = BaseTableView(cellArray: [UITableViewCell.self])) {
+    /// Initialised Method
+    /// - Parameter tableView: TableView will be used to show saved receipts
+    init(_ viewModel: ReceiptListViewModel = ReceiptListViewModel(), _ tableView: UITableView = BaseTableView(cellArray: [UITableViewCell.self])) {
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = .white
+        self.viewModel = viewModel
         self.tableView = tableView
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewReceipt))
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -31,10 +33,13 @@ class ReceiptListViewController: UIViewController {
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.frame = view.frame
         }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewReceipt))
     }
 
     @objc func addNewReceipt() {
-        print("addNewReceipt")
+        //self.navigationController?.present(ReceiptSaveViewController(), animated: true)
+        self.navigationController?.pushViewController(ReceiptSaveViewController(), animated: true)
+        //print("addNewReceipt")
     }
 
 }

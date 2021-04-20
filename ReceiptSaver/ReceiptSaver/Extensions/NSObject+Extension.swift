@@ -13,3 +13,7 @@ extension NSObject {
         return String(describing: self)
     }
 }
+
+extension StringProtocol {
+    var double: Double? { Double(self) }
+}
