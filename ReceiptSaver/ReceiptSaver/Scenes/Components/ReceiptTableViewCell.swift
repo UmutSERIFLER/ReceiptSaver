@@ -11,7 +11,7 @@ class ReceiptTableViewCell: UITableViewCell {
     
     var receipt: Receipt? {
         didSet {
-            receiptNameLabel.text = receipt?.timeStamp
+            receiptNameLabel.text = "Receipt Date: \(receipt?.timeStamp ?? "")"
         }
     }
     
