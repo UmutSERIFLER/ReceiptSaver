@@ -10,29 +10,30 @@ import RealmSwift
 
 @objcMembers class Receipt: Object {
     
-    dynamic var timeStamp = ""
+    dynamic var id: String = ""
+    
+    dynamic var timeStamp: String = ""
     dynamic var receiptImage: NSData?
     dynamic var totalPrice: String = ""
     dynamic var currency: String = ""
     
-    convenience init(_ timeStamp: String = "",_ receiptImage: NSData? = nil,_ totalPrice: String = "",_ currency: String = "") {
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    convenience init(_ id: String,_ timeStamp: String = "",_ receiptImage: NSData? = nil,_ totalPrice: String = "",_ currency: String = "") {
         self.init()
+        self.id = id
         self.timeStamp = timeStamp
         self.receiptImage = receiptImage
         self.totalPrice = totalPrice
         self.currency = currency
     }
-    
-    var isObjectSavingEnabled: Bool {
-        get {
-            return !timeStamp.isEmpty && !totalPrice.isEmpty && !currency.isEmpty
-        }
-    }
-    
-    var isObjectLoadable: Bool {
-        get {
-            return !timeStamp.isEmpty && !totalPrice.isEmpty && !currency.isEmpty && (receiptImage != nil)
-        }
+}
+
+extension Receipt {
+    func tranformsToReceiptModel() -> ReceiptModel {
+        return ReceiptModel(id: self.id, timeStamp: self.timeStamp, receiptImage: self.receiptImage, totalPrice: self.totalPrice, currency: self.currency)
     }
 }
 
@@ -42,7 +43,6 @@ extension Receipt {
     
     static func all(in realm: Realm = try! Realm()) -> Results<Receipt> {
         return realm.objects(Receipt.self)
-            //.sorted(byKeyPath: Receipt.Property.isCompleted.rawValue)
     }
     
     @discardableResult
@@ -54,13 +54,20 @@ extension Receipt {
         return model
     }
     
-    func update(timeStamp: String, receiptImage: NSData, totalPrice: String, currency: String, receiptName: String) {
-        guard let realm = realm else { return }
+    static func saveUpdate(model: Receipt, in realm: Realm = try! Realm()) {
+        guard !model.id.isEmpty else {
+            model.id = UUID().uuidString
+            self.add(model: model)
+            return
+        }
+        guard let receipt = realm.objects(Receipt.self).filter(NSPredicate(format: "id == %@", model.id)).first else {
+            return
+        }
         try! realm.write {
-            self.timeStamp = timeStamp
-            self.receiptImage = receiptImage
-            self.totalPrice = totalPrice
-            self.currency = currency
+            receipt.timeStamp = model.timeStamp
+            receipt.receiptImage = model.receiptImage
+            receipt.totalPrice = model.totalPrice
+            receipt.currency = model.currency
         }
     }
     

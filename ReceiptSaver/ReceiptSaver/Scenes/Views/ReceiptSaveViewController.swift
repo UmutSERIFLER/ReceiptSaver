@@ -8,35 +8,35 @@
 import UIKit
 
 protocol ReceiptSaveViewControllerDelegate {
-    func saveUpdateReceipt(with: Receipt)
+    func saveUpdateReceipt(with: Any)
 }
 
 class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private var imagePicker: ImagePicker?
-    private(set) var receipt: Receipt
+    private(set) var receipt: ReceiptModel?
     
     var delegate: ReceiptSaveViewControllerDelegate?
     
     lazy var imageView = UIImageView.make(#imageLiteral(resourceName: "photo_imageholder"))
     
-    lazy var dateLabel = UILabel.make("Date: ", textColor: .black, fontSize: 16, alignment: .left)
+    lazy var dateLabel = UILabel.make(Constants.date, textColor: .black, fontSize: 16, alignment: .left)
     
-    lazy var currencyButton: UIButton =  UIButton.make(nil, .black, "Currency: ")
+    lazy var currencyButton: UIButton =  UIButton.make(nil, .black, Constants.currency)
     
-    lazy var totalPriceButton: UIButton =  UIButton.make(nil, .black, "Total Price: ")
+    lazy var totalPriceButton: UIButton =  UIButton.make(nil, .black, Constants.totalPrice)
     
-    lazy var datePicker: UIDatePicker = UIDatePicker.make()
+    lazy var datePicker: UIDatePicker = UIDatePicker.make(defaultDate: receipt?.timeStamp)
     
-    lazy var saveReceiptButton = UIButton.make(nil, .black, "Save Receipt", .center)
+    lazy var saveReceiptButton = UIButton.make(nil, .black, Constants.saveReceipt, .center)
     
     
-    init(_ receipt: Receipt = Receipt(), delegation: ReceiptSaveViewControllerDelegate? = nil) {
+    init(_ receipt: ReceiptModel? = ReceiptModel(), delegation: ReceiptSaveViewControllerDelegate? = nil) {
         self.receipt = receipt
         self.delegate = delegation
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .white
-        self.title = receipt.timeStamp
+        self.title = self.receipt?.timeStamp
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -46,6 +46,8 @@ class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelega
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera_icon"), style: .plain, target: self, action: #selector(openImagePicker(_:)))
         
+        datePicker.addTarget(self, action: #selector(setNewDate(picker:)), for: .valueChanged)
+        
         totalPriceButton.addTarget(self, action: #selector(setReceiptPrice), for: .touchUpInside)
         
         currencyButton.addTarget(self, action: #selector(setCurrency), for: .touchUpInside)
@@ -54,13 +56,16 @@ class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelega
         
         imagePicker = ImagePicker(presentationController: self, delegate: self)
         
-        if self.receipt.isObjectLoadable {
-            imageView.image = UIImage(data: Data(referencing: receipt.receiptImage!))
-            self.totalPriceButton.setTitle("Total Price: \(self.receipt.totalPrice)", for: .normal)
-            self.currencyButton.setTitle("Currency: ", for: .normal)
-        } else {
-            self.receipt.timeStamp = DateFormatter().formattedDate(date: datePicker.date)
+        
+        guard let receipt = self.receipt, let imageData = receipt.receiptImage else {
+            self.receipt?.timeStamp = DateFormatter().fromDateToString(date: datePicker.date)
+            return
         }
+        
+        imageView.image = UIImage(data: Data(referencing: imageData))
+        self.totalPriceButton.setTitle("\(Constants.totalPrice)\(receipt.totalPrice)", for: .normal)
+        self.currencyButton.setTitle("\(Constants.currency)\(receipt.currency)", for: .normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,24 +115,28 @@ class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelega
         ])
     }
     
+    @objc func setNewDate(picker: UIDatePicker) {
+        receipt?.timeStamp = DateFormatter().fromDateToString(date: picker.date)
+    }
+    
     @objc func openImagePicker(_ sender: UIButton) {
         self.imagePicker?.present(from: sender)
     }
     
     @objc func setReceiptPrice() {
-        takeInputFromUser(with: "Please enter total price..") { [weak self] (message) in
+        takeInputFromUser(with: Constants.priceInputMessage) { [weak self] (message) in
             if let validPrice = message?.double {
-                self?.receipt.totalPrice = validPrice.formattedPrice()
-                self?.totalPriceButton.setTitle("Total Price: \(validPrice.formattedPrice())", for: .normal)
+                self?.receipt?.totalPrice = validPrice.formattedPrice()
+                self?.totalPriceButton.setTitle("\(Constants.totalPrice)\(validPrice.formattedPrice())", for: .normal)
             }
         }
     }
     
     @objc func setCurrency() {
-        takeInputFromUser(with: "Please enter curreny type..") { [weak self] (message) in
+        takeInputFromUser(with: Constants.currencyInputMessage) { [weak self] (message) in
             if let message = message, !message.isEmpty {
-                self?.receipt.currency = message
-                self?.currencyButton.setTitle("Currency: \(message)", for: .normal)
+                self?.receipt?.currency = message
+                self?.currencyButton.setTitle("\(Constants.currency)\(message)", for: .normal)
             }
         }
     }
@@ -142,7 +151,7 @@ class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelega
     
     @objc func saveReceipt() {
         
-        guard let _ = self.receipt.receiptImage, receipt.isObjectSavingEnabled  else {
+        guard let receipt = self.receipt, let _ = receipt.receiptImage, receipt.isObjectSavingEnabled else {
             return
         }
         delegate?.saveUpdateReceipt(with: receipt)
@@ -156,7 +165,7 @@ extension ReceiptSaveViewController: ImagePickerDelegate {
         guard let image = image, let imageData = image.pngData() else {
             return
         }
-        self.receipt.receiptImage = NSData(data: imageData)
+        self.receipt?.receiptImage = NSData(data: imageData)
         self.imageView.image = image
     }
 }

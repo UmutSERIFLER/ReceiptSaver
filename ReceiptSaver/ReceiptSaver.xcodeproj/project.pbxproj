@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,10 @@
 		9DD67B57262FA14A0007AF59 /* UIIMageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67B55262FA14A0007AF59 /* UIIMageView+Extension.swift */; };
 		9DD67B5D262FA26A0007AF59 /* UIDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67B5C262FA26A0007AF59 /* UIDatePicker+Extension.swift */; };
 		9DD67B5E262FA26A0007AF59 /* UIDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67B5C262FA26A0007AF59 /* UIDatePicker+Extension.swift */; };
+		9DD67B9C262FF3200007AF59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67B9B262FF3200007AF59 /* Constants.swift */; };
+		9DD67B9D262FF3200007AF59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67B9B262FF3200007AF59 /* Constants.swift */; };
+		9DD67BA3262FF55B0007AF59 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67BA2262FF55B0007AF59 /* ReceiptModel.swift */; };
+		9DD67BA4262FF55B0007AF59 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD67BA2262FF55B0007AF59 /* ReceiptModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,8 @@
 		9DD67B07262F4F3B0007AF59 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 		9DD67B55262FA14A0007AF59 /* UIIMageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIMageView+Extension.swift"; sourceTree = "<group>"; };
 		9DD67B5C262FA26A0007AF59 /* UIDatePicker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+Extension.swift"; sourceTree = "<group>"; };
+		9DD67B9B262FF3200007AF59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9DD67BA2262FF55B0007AF59 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9D3743CB262DF3F400605443 /* Receipt.swift */,
+				9DD67BA2262FF55B0007AF59 /* ReceiptModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				9D37440B262E00E900605443 /* ImagePicker.swift */,
+				9DD67B9B262FF3200007AF59 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -452,10 +460,12 @@
 				9D374299262DC8C700605443 /* AppDelegate.swift in Sources */,
 				9D37441E262E162400605443 /* UILabel+Extension.swift in Sources */,
 				9DD67B5D262FA26A0007AF59 /* UIDatePicker+Extension.swift in Sources */,
+				9DD67BA3262FF55B0007AF59 /* ReceiptModel.swift in Sources */,
 				9D374417262E03FA00605443 /* UIButton+Extension.swift in Sources */,
 				9D374371262DD21200605443 /* ReceiptListViewModel.swift in Sources */,
 				9D3743CC262DF3F400605443 /* Receipt.swift in Sources */,
 				9D40AD86262F3DF7006792B3 /* DateFormatter+Extension.swift in Sources */,
+				9DD67B9C262FF3200007AF59 /* Constants.swift in Sources */,
 				9D374425262E19FB00605443 /* UIAlertController+Extension.swift in Sources */,
 				9D3743FC262DF9D200605443 /* ReceiptSaveViewController.swift in Sources */,
 				9DD67B08262F4F3B0007AF59 /* ReceiptTableViewCell.swift in Sources */,
@@ -494,10 +504,12 @@
 				9D3742CE262DC8D800605443 /* AppDelegate.swift in Sources */,
 				9D37441F262E162400605443 /* UILabel+Extension.swift in Sources */,
 				9DD67B5E262FA26A0007AF59 /* UIDatePicker+Extension.swift in Sources */,
+				9DD67BA4262FF55B0007AF59 /* ReceiptModel.swift in Sources */,
 				9D374418262E03FA00605443 /* UIButton+Extension.swift in Sources */,
 				9D374372262DD21200605443 /* ReceiptListViewModel.swift in Sources */,
 				9D3743CD262DF3F400605443 /* Receipt.swift in Sources */,
 				9D40AD87262F3DF7006792B3 /* DateFormatter+Extension.swift in Sources */,
+				9DD67B9D262FF3200007AF59 /* Constants.swift in Sources */,
 				9D374426262E19FB00605443 /* UIAlertController+Extension.swift in Sources */,
 				9D3743FD262DF9D200605443 /* ReceiptSaveViewController.swift in Sources */,
 				9DD67B09262F4F3B0007AF59 /* ReceiptTableViewCell.swift in Sources */,
