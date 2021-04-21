@@ -55,19 +55,33 @@ extension Receipt {
     }
     
     static func saveUpdate(model: Receipt, in realm: Realm = try! Realm()) {
+        
         guard !model.id.isEmpty else {
             model.id = UUID().uuidString
             self.add(model: model)
             return
         }
+        
         guard let receipt = realm.objects(Receipt.self).filter(NSPredicate(format: "id == %@", model.id)).first else {
             return
         }
-        try! realm.write {
-            receipt.timeStamp = model.timeStamp
-            receipt.receiptImage = model.receiptImage
-            receipt.totalPrice = model.totalPrice
-            receipt.currency = model.currency
+        // Create thread-safe reference to receipt
+        let modelRef = ThreadSafeReference(to: receipt)
+        // Pass the reference to a background thread
+        DispatchQueue(label: "backgroundThread").async {
+            autoreleasepool {
+                let realm = try! Realm()
+                try! realm.write {
+                    // Resolve within the transaction to ensure you get the latest changes from other threads
+                    guard let receiptModel = realm.resolve(modelRef) else {
+                        return // receipt was deleted
+                    }
+                    receiptModel.timeStamp = model.timeStamp
+                    receiptModel.receiptImage = model.receiptImage
+                    receiptModel.totalPrice = model.totalPrice
+                    receiptModel.currency = model.currency
+                }
+            }
         }
     }
     
