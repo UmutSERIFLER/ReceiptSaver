@@ -152,6 +152,7 @@ class ReceiptSaveViewController: UIViewController, UIImagePickerControllerDelega
     @objc func saveReceipt() {
         
         guard let receipt = self.receipt, let _ = receipt.receiptImage, receipt.isObjectSavingEnabled else {
+            self.showAlert(with: Constants.missingFieldErrorMessage)
             return
         }
         delegate?.saveUpdateReceipt(with: receipt)
