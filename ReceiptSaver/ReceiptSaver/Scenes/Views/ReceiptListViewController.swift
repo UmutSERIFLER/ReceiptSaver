@@ -15,8 +15,11 @@ class ReceiptListViewController: UITableViewController {
     /// - Parameter tableView: TableView will be used to show saved receipts
     init(_ viewModel: ReceiptListViewModel = ReceiptListViewModel(), _ tableView: UITableView = BaseTableView(cellArray: [ReceiptTableViewCell.self])) {
         super.init(nibName: nil, bundle: nil)
+        
         self.viewModel = viewModel
         self.tableView = tableView
+        
+        self.title = Constants.receiptsListTitle
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
