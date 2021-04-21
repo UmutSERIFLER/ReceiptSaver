@@ -10,5 +10,5 @@ import Foundation
 protocol ModelProtocol {
     var reloadTableViewClosure: (() -> ()) { get }
     var showAlertClosure: ((String?) -> ()) { get }
-    var updateLoadingStatusClosure: ((Bool) -> ()) { get }
+    var updateLoadingStatusClosure: (([Int],[Int],[Int]) -> ()) { get }
 }

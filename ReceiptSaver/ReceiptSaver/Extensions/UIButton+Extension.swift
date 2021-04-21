@@ -9,8 +9,8 @@ import UIKit
 
 extension UIButton {
     
-    static func make(_ image: UIImage? = nil, _ titleColor: UIColor = .black, _ title: String? = nil,_ rect: CGRect = CGRect(origin: .zero, size: CGSize(width: 25, height: 25)),_ textAlignment: ContentHorizontalAlignment = .left) -> UIButton {
-        let button = UIButton(frame: rect)
+    static func make(_ image: UIImage? = nil, _ titleColor: UIColor = .black, _ title: String? = nil,_ textAlignment: ContentHorizontalAlignment = .left) -> UIButton {
+        let button = UIButton(frame: .zero)
         button.tintColor = .blue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(title, for: .normal)

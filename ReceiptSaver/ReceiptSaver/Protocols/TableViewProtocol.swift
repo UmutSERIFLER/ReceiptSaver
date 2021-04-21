@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TableViewProtocol {
-    func getData(at: IndexPath) -> Decodable // This can be defined as Any
-    func willDataUpdate(for: IndexPath)
+    func getData(at: IndexPath) -> Any?
+    func saveUpdate(with: Any?)
     func retrieveNumberOfItems() -> Int
 }
