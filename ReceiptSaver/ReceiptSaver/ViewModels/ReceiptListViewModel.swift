@@ -42,7 +42,7 @@ class ReceiptListViewModel: ViewModelProtocol {
     
     func saveUpdate(with data: Any?) {
         if let receipt = data as? Receipt {
-            Receipt.add(model: receipt)
+            Receipt.saveUpdate(model: receipt)
         }
     }
     

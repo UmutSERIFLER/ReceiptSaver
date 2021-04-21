@@ -9,10 +9,21 @@ import Foundation
 
 extension DateFormatter {
     
-    func formattedDate(date: Date) -> String {
+    func fromDateToString(date: Date) -> String {
         let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)
+    }
+    
+    func fromStringToDate(defaultDate: String?) -> Date? {
+        if let selectedDate = defaultDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            if let date = dateFormatter.date(from: selectedDate) {
+                return date
+            }
+        }
+        return nil
     }
     
 }

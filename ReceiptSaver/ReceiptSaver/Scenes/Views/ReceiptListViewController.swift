@@ -8,7 +8,7 @@
 import UIKit
 
 class ReceiptListViewController: UITableViewController {
-
+    
     private(set) var viewModel: ReceiptListViewModel?
     
     /// Initialised Method
@@ -20,7 +20,7 @@ class ReceiptListViewController: UITableViewController {
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -48,14 +48,14 @@ class ReceiptListViewController: UITableViewController {
         
         viewModel?.showAlertClosure = { [weak self] errorMessage in
             guard let errorMessage = errorMessage else { return }
-           // self?.showAlert(withMessage: errorMessage)
+            // self?.showAlert(withMessage: errorMessage)
         }
     }
-
+    
     @objc func addNewReceipt() {
         self.navigationController?.pushViewController(ReceiptSaveViewController(delegation: self), animated: true)
     }
-
+    
 }
 
 extension ReceiptListViewController {
@@ -79,7 +79,7 @@ extension ReceiptListViewController {
         if let receiptCell: ReceiptTableViewCell = tableView.cellForRow(at: indexPath) as? ReceiptTableViewCell {
             guard let receipt = receiptCell.receipt else { return }
             DispatchQueue.main.async { [weak self] in
-                self?.navigationController?.pushViewController(ReceiptSaveViewController(receipt, delegation: self), animated: true)
+                self?.navigationController?.pushViewController(ReceiptSaveViewController(receipt.tranformsToReceiptModel(), delegation: self), animated: true)
             }
         }
     }
@@ -91,8 +91,11 @@ extension ReceiptListViewController {
 }
 
 extension ReceiptListViewController: ReceiptSaveViewControllerDelegate {
-    func saveUpdateReceipt(with data: Receipt) {
-        viewModel?.saveUpdate(with: data)
+    func saveUpdateReceipt(with data: Any) {
+        if let receipt = (data as? ReceiptModel)?.transformToRealmObject() {
+            viewModel?.saveUpdate(with: receipt)
+        }
     }
+    
 }
 
