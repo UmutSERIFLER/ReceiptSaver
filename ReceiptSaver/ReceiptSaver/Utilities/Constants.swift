@@ -8,6 +8,7 @@
 import Foundation
 
 struct Constants {
+    static let receiptsListTitle = "Receipts List"
     static let date = "Date: "
     static let currency = "Currency: "
     static let totalPrice = "Total Price: "
