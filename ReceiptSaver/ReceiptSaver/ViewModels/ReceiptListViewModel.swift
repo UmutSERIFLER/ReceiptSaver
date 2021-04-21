@@ -47,7 +47,7 @@ class ReceiptListViewModel: ViewModelProtocol {
     }
     
     func retrieveNumberOfItems() -> Int {
-        return receipts?.count ?? 0//return self.realmDBManager.objects().count
+        return receipts?.count ?? 0
     }
     
     

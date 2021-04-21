@@ -48,7 +48,7 @@ class ReceiptListViewController: UITableViewController {
         
         viewModel?.showAlertClosure = { [weak self] errorMessage in
             guard let errorMessage = errorMessage else { return }
-            // self?.showAlert(withMessage: errorMessage)
+            self?.showAlert(with: errorMessage)
         }
     }
     

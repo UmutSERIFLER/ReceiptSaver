@@ -14,4 +14,5 @@ struct Constants {
     static let saveReceipt = "Save Receipt"
     static let priceInputMessage = "Please enter total price.."
     static let currencyInputMessage = "Please enter curreny type.."
+    static let missingFieldErrorMessage = "Please check all the fields are filled out"
 }
